@@ -268,7 +268,7 @@ public class Signup extends JFrame implements ActionListener {
                 String q = "insert into signup values('"+formno+"','"+name+"','"+formno+"','"+dob+"','"+gender+"', '"+email+"','"+marital+"','"+address+"','"+city+"','"+pin+"','"+state+"')";//sql query
                 con1.statement.executeUpdate(q);  //to execute and update db,to input value in table
 
-                 new Signup2();
+                 new Signup2(first);
                  setVisible(false);
             }
 
