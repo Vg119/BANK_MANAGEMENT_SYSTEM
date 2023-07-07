@@ -207,6 +207,48 @@ public class Signup2 extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        String rel = (String) comboBox.getSelectedItem();//get from combobox
+        String cat = (String) comboBox2.getSelectedItem();
+        String inc = (String) comboBox3.getSelectedItem();
+        String edu = (String) comboBox4.getSelectedItem();
+        String occ = (String) comboBox5.getSelectedItem();
+        String pan = (String) textpan.getText();
+        String aadhar = (String) textaddhar.getText();
+
+        String scitizen = null; //for senior citizen
+        if(r1.isSelected()){
+            scitizen = "Yes";
+        } else if (r2.isSelected()) {
+            scitizen="No";
+        }
+
+        String eAccount = null; //for eaccount
+        if(e1.isSelected())
+            eAccount = "Yes";
+        else if (e2.isSelected()) {
+            eAccount = "No";
+
+        }
+
+        try {
+            if(textpan.getText().equals("")|| textaddhar.getText().equals(""))
+            {
+                JOptionPane.showMessageDialog(null,"Fill all the fields");
+            }
+            else {
+                Con c1 = new Con();
+                String q = "INSERT INTO signup2 VALUES('"+formno+"','"+rel+"','"+cat+"','"+inc+"','"+edu+"','"+occ+"','"+pan+"','"+aadhar+"','"+scitizen+"','"+eAccount+"')";
+                c1.statement.executeUpdate(q); //when we insert/update we used executeUpdate
+                new Signup3(formno);//if data is not inserted then Signup3 page wont open .
+                setVisible(false);
+            }
+
+        }catch (Exception E)
+        {
+            E.printStackTrace();;
+        }
+
+
     }
 
     public static void main(String[] args) {
