@@ -12,7 +12,7 @@ public class Signup2 extends JFrame implements ActionListener {
     JTextField textpan,textaddhar;
     JComboBox comboBox,comboBox2,comboBox3,comboBox4,comboBox5,comboBox6;//drop down
     String formno; // to get form no from signup
-    Signup2(String first)
+    Signup2(String formno)
     {
         super("VERGAB'S APPLICATION FROM");
 
@@ -22,7 +22,7 @@ public class Signup2 extends JFrame implements ActionListener {
         JLabel image = new JLabel(i3); //displaying image as label
         image.setBounds(150,10,100,100);//where the image appears
         add(image);//adding image on frame
-        this.formno = first;  //form no from signup
+        this.formno = formno;  //form no from signup
 
         //PAGE 2
         JLabel l1 = new JLabel("Page 2 :-");
@@ -173,9 +173,9 @@ public class Signup2 extends JFrame implements ActionListener {
 
 
         //FROM NO
-        JLabel l12 = new JLabel("Form No. :-");
+        JLabel l12 = new JLabel("Form No.:-");
         l12.setFont(new Font("Raleway",Font.BOLD,18));
-        l12.setBounds(700,10,100,30);
+        l12.setBounds(650,10,100,30);
         add(l12);
 
         JLabel l13 = new JLabel(formno);
