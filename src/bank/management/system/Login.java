@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 //Jframe so as to show a frame,actionslistener to listen to events
 public class Login extends JFrame implements ActionListener {
@@ -112,6 +113,7 @@ public class Login extends JFrame implements ActionListener {
         setLayout(null);//setting default layout null
         setSize(850,480); // setting size of frame
         setLocation(450,200);//so that frame opens at 450 from left x axis & 200 from top (y axis)
+        setUndecorated(true);//to not show the minimize , maximize and close options at top right
         setVisible(true);//setting true so as to make frame visible, always keep setvisibility after setting whatever u want to be visible
 
     }
@@ -124,6 +126,19 @@ public class Login extends JFrame implements ActionListener {
 
             if(e.getSource()==button1)//if e notifies that action is performed on button1
             {
+                Con c = new Con();
+                String cardno = textField2.getText();
+                String pin = passwordField3.getText();
+
+                String q = "SELECT * FROM login WHERE card_number='"+cardno+"' AND pin ='"+pin+"'"; // we get the record from login that stores cardno and pin
+                ResultSet resultSet = c.statement.executeQuery(q);//when we get from db we use executequery and not executeupdate
+                if(resultSet.next()){  //.next() to check is we get our value from db
+                    setVisible(false);
+                    new Main_Class(pin);
+                }
+                else {
+                    JOptionPane.showMessageDialog(null,"Enter correct details");
+                }
 
 
             } else if (e.getSource()==button2) {//if e notifies that action is performed on button2

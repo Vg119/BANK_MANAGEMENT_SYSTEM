@@ -82,9 +82,11 @@ public class Deposit extends JFrame implements ActionListener {
                     c.statement.executeUpdate("INSERT INTO bank VALUES('"+pin+"','"+date+"','Deposit','"+amount+"')");//anything in single quotes is put into table as is.
                     JOptionPane.showMessageDialog(null,"Rs. "+amount+" deposit successfully");
                     setVisible(false);
+                    new Main_Class(pin);
                 }
             } else if (e.getSource()==b2) {  //back button press action
                 setVisible(false);
+                new Main_Class(pin);
 
             }
 
