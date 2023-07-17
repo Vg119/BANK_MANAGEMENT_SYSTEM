@@ -98,6 +98,14 @@ public class Main_Class extends JFrame implements ActionListener {
             System.exit(0); // closes entire application
 
 
+        } else if (e.getSource()==b2) {
+            new Withdrawal(pin);
+            setVisible(false);
+
+        } else if (e.getSource()==b6) {
+            setVisible(false);
+            new BalanceEnquiry(pin);
+
         }
 
     }
