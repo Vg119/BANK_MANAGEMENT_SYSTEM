@@ -113,6 +113,10 @@ public class Main_Class extends JFrame implements ActionListener {
             setVisible(false);
             new Pin(pin);
 
+        } else if (e.getSource()==b4) {
+
+             new Mini(pin);
+
         }
 
     }
